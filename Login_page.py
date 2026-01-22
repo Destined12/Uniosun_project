@@ -4,6 +4,9 @@ from datetime import datetime, timedelta
 import pandas as pd
 import plotly.graph_objects as go
 import numpy as np
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 # ===============================
 # PAGE CONFIG (FULL SCREEN)
@@ -42,7 +45,7 @@ st.markdown(
 # USERS (hashed passwords)
 # ===============================
 USERS = {
-    "admin": hashlib.sha256("admin123".encode()).hexdigest()
+    os.getenv("ADMIN_USERNAME"): hashlib.sha256(os.getenv("ADMIN_PASSWORD").encode()).hexdigest()
 }
 
 # ===============================
